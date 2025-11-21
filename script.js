@@ -134,20 +134,3 @@ function calcRemaining(date, time){
   if(diff<3*3600*1000) cls="urgent";
   return {text:`${days}d ${hrs}h ${mins}m ${secs}s`, cls:cls};
 }
-
-
-
-// ===== Firebase Auto-Load System =====
-firebase.database().ref('websiteData').on('value', snap => {
-    const data = snap.val();
-    if(!data) return;
-
-    if(data.name) document.getElementById("name").innerText = data.name;
-    if(data.batch) document.getElementById("batch").innerText = data.batch;
-    if(data.timing) document.getElementById("timing").innerText = data.timing;
-    if(data.details) document.getElementById("details").innerText = data.details;
-
-    if(data.date){
-        targetDate = new Date(data.date);
-    }
-});
