@@ -1,1 +1,67 @@
-<html><body><h1>Admin Panel Placeholder</h1></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel</title>
+<style>
+body{font-family:Arial;background:#111;color:#fff;padding:20px;}
+input, textarea{width:100%;padding:10px;margin:8px 0;font-size:16px;}
+button{padding:10px 20px;font-size:18px;background:#28a745;color:#fff;border:none;cursor:pointer;}
+</style>
+</head>
+<body>
+<h2>Admin Panel (Update Website Data)</h2>
+
+<label>Name:</label>
+<input id="nameInput" type="text">
+
+<label>Batch:</label>
+<input id="batchInput" type="text">
+
+<label>Timing:</label>
+<input id="timingInput" type="text">
+
+<label>Details:</label>
+<textarea id="detailsInput"></textarea>
+
+<label>Date:</label>
+<input id="dateInput" type="text" placeholder="2025-01-20">
+
+<button onclick="saveData()">Save</button>
+
+<!-- Firebase (version 8 compatible with simple HTML) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script>
+// Firebase config (YOUR real config)
+const firebaseConfig = {
+  apiKey: "AIzaSyA6qx5BLXZHXDnN74cKWYOlSBHODBLG9p0",
+  authDomain: "the-icons-dc24a.firebaseapp.com",
+  databaseURL: "https://the-icons-dc24a-default-rtdb.firebaseio.com",
+  projectId: "the-icons-dc24a",
+  storageBucket: "the-icons-dc24a.firebasestorage.app",
+  messagingSenderId: "466340073612",
+  appId: "1:466340073612:web:6e4fc3a584127022ecaba9"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+// SAVE BUTTON FUNCTION
+function saveData(){
+    firebase.database().ref("websiteData").set({
+        name: document.getElementById("nameInput").value,
+        batch: document.getElementById("batchInput").value,
+        timing: document.getElementById("timingInput").value,
+        details: document.getElementById("detailsInput").value,
+        date: document.getElementById("dateInput").value
+    }).then(()=>{
+        alert("Data Saved Successfully!");
+    }).catch(err=>{
+        alert("ERROR: " + err.message);
+    });
+}
+</script>
+
+</body>
+</html>
