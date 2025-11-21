@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>The Icons Academy - PRO System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard">
+  <h1>The Icons Academy</h1>
+  <div class="cards">
+    <div class="card" onclick="showSection('schedules')">Schedules</div>
+    <div class="card" onclick="showSection('students')">Student Records</div>
+    <div class="card" onclick="showSection('staff')">Staff</div>
+  </div>
+</div>
+
+<!-- SCHEDULES -->
+<div id="schedules" class="section">
+  <h2>Schedules</h2>
+  <form id="scheduleForm">
+    <input placeholder="Name" id="schName">
+    <input placeholder="Test Type" id="schTest">
+    <input type="date" id="schDate">
+    <input type="time" id="schTime">
+    <button type="button" onclick="addSchedule()">Add</button>
+  </form>
+  <input id="schSearch" placeholder="Search..." oninput="renderSchedules()">
+  <table id="schTable"></table>
+</div>
+
+<!-- STUDENTS -->
+<div id="students" class="section">
+  <h2>Students</h2>
+  <form id="stuForm">
+    <input placeholder="Name" id="stuName">
+    <input placeholder="Father Name" id="stuFather">
+    <input placeholder="Email" id="stuEmail">
+    <input placeholder="Passport" id="stuPassport">
+    <input placeholder="Test Type" id="stuTest">
+    <input placeholder="Total Payment" id="stuTotal">
+    <input placeholder="Discount" id="stuDiscount">
+    <input placeholder="Remaining" id="stuRemain">
+    <input placeholder="Paid/Not Paid" id="stuStatus">
+    <button type="button" onclick="addStudent()">Add</button>
+  </form>
+  <input id="stuSearch" placeholder="Search..." oninput="renderStudents()">
+  <table id="stuTable"></table>
+</div>
+
+<!-- STAFF -->
+<div id="staff" class="section">
+  <h2>Staff</h2>
+  <form id="staffForm">
+    <input placeholder="Name" id="stName">
+    <input placeholder="Father Name" id="stFather">
+    <input placeholder="Position" id="stPos">
+    <input placeholder="Salary" id="stSalary">
+    <input placeholder="Phone" id="stPhone">
+    <input placeholder="CNIC" id="stCnic">
+    <button type="button" onclick="addStaff()">Add</button>
+  </form>
+  <input id="stSearch" placeholder="Search..." oninput="renderStaff()">
+  <table id="stTable"></table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
